@@ -1,15 +1,19 @@
 package utils;
 
 import io.restassured.RestAssured;
-import org.testng.annotations.BeforeClass;
+import io.restassured.specification.RequestSpecification;
 
 import static utils.ConfigReader.getProperty;
 
 public class ApiTestBase {
-    @BeforeClass
-    public void setup() {
+    protected RequestSpecification request;
+    public ApiTestBase() {
         RestAssured.baseURI = getProperty("baseURI");
         RestAssured.basePath = getProperty("basePath") + "/" + getProperty("endpoint");
+
+        request = RestAssured.given()
+                .contentType("application/json")
+                .accept("application/json");
     }
 }
 
