@@ -2,8 +2,8 @@ package hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.WebDriver;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.WebDriver;
 import utils.BaseTest;
 import utils.Log;
 
@@ -24,7 +24,6 @@ public class Hooks extends BaseTest {
         }
         Log.info("----- ENDING SCENARIO: " + scenario.getName() + " -----");
     }
-
     public static WebDriver getDriverInstance() {
         return driver;
     }
